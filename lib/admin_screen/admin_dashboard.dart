@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mess_erp/admin_screen/manager_assignment_screen.dart';
+import 'package:mess_erp/admin_screen/report_screen.dart';
 import 'package:mess_erp/screens/create_mess_screen.dart';
 import 'package:mess_erp/screens/login_screen.dart';
 import 'package:mess_erp/screens/user_management_screen.dart';
@@ -128,6 +129,10 @@ class AdminDashboard extends StatelessWidget
           //   {
           //     Navigator.pop(context);
           //   }
+          else if(index == 4)
+            {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> ReportScreen()));
+            }
         },
       ),
 

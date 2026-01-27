@@ -3,7 +3,7 @@ import 'package:mess_erp/screens/login_screen.dart';
 import 'package:mess_erp/screens/user_management_screen.dart';
 import 'package:mess_erp/admin_screen//manager_assignment_screen.dart';
 import 'package:mess_erp/admin_screen//mess_account_screen.dart';
-import 'package:mess_erp/screens/create_mess_screen.dart';
+import 'package:mess_erp/screens/base_Charge_Setup_Screen.dart';
 
 Widget adminDrawer(BuildContext context) {
   double screenWidth = MediaQuery.of(context).size.width;
@@ -51,6 +51,18 @@ Widget adminDrawer(BuildContext context) {
             Navigator.pop(context);
             Navigator.push(context,
                 MaterialPageRoute(builder: (_) => const ManagerAssignmentScreen())
+            );
+          },
+        ),
+
+        // Advance payment (charge)
+        ListTile(
+          leading: const Icon(Icons.assignment_ind),
+          title: const Text("Advance Payment Setup"),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (_) => const BaseChargeSetupScreen())
             );
           },
         ),
