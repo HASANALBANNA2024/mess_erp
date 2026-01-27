@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mess_erp/admin_screen/manager_assignment_screen.dart';
 import 'package:mess_erp/screens/create_mess_screen.dart';
+import 'package:mess_erp/screens/login_screen.dart';
 import 'package:mess_erp/screens/user_management_screen.dart';
+import 'package:mess_erp/admin_screen/adminDrawer.dart';
 
 class AdminDashboard extends StatelessWidget
 {
@@ -15,14 +18,22 @@ class AdminDashboard extends StatelessWidget
         centerTitle: true,
         title: const Text("Admin Dashboard", style: TextStyle(color: Colors.white, ),),
         backgroundColor: const Color(0xFF0F172A),
+
+
         leading: IconButton(onPressed: (){
-          Navigator.pop(context);
-        }, icon: const Icon(Icons.arrow_back, color: Colors.white,)),
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> adminDrawer(context)));
+        },
+            icon: const Icon(Icons.menu, color: Colors.white,)
+        ),
+
 
         actions: [
           Padding(padding: EdgeInsets.only(right: 12),
-          child: Icon(Icons.notifications, color: Colors.white,),),
+            child: Icon(Icons.notifications, color: Colors.white,),),
+
+
         ],
+
       ),
       
       // body
@@ -81,6 +92,10 @@ class AdminDashboard extends StatelessWidget
             label: "Home",
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.person_add),
+            label: "Manager Assign",
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.people),
             label: "Users",
 
@@ -94,13 +109,25 @@ class AdminDashboard extends StatelessWidget
             icon: Icon(Icons.receipt_long),
             label: "Reports",
           ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.logout),
+          //   label: "Logout",
+          // ),
         ],
         // screen golo call kora hobe sob
         onTap: (index) {
-          if(index == 1)
+          if(index == 2)
             {
               Navigator.push(context, MaterialPageRoute(builder: (context)=> UserManagementScreen()));
             }
+          else if(index == 1)
+            {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> ManagerAssignmentScreen()));
+            }
+          // else if(index == 5)
+          //   {
+          //     Navigator.pop(context);
+          //   }
         },
       ),
 
@@ -190,6 +217,7 @@ Widget _actionButton({
   );
 
 }
+
 
   
   

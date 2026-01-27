@@ -9,10 +9,11 @@ class ManagerAssignmentScreen extends StatelessWidget {
       backgroundColor: Colors.grey.shade100,
 
       appBar: AppBar(
-        title: const Text("Manager Assignment"),
+        centerTitle: true,
+        title: const Text("Manager Assignment",style: TextStyle(color: Colors.white, )),
         backgroundColor: const Color(0xFF0F172A),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back, color: Colors.white,),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -57,8 +58,9 @@ class ManagerAssignmentScreen extends StatelessWidget {
                 onPressed: () {
                   // 🔮 Future:
                   // Save manager assignment (month wise)
+                  Navigator.pop(context);
                 },
-                child: const Text("Assign Manager"),
+                child: const Text("Assign Manager",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
               ),
             ),
           ],
@@ -79,3 +81,4 @@ class ManagerAssignmentScreen extends StatelessWidget {
     );
   }
 }
+
