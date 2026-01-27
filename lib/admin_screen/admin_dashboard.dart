@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mess_erp/screens/create_mess_screen.dart';
 
 class AdminDashboard extends StatelessWidget
 {
@@ -50,6 +51,7 @@ class AdminDashboard extends StatelessWidget
             // create mess button
             _actionButton(text: "Create Mess", color: Colors.red, icon: Icons.add, onTap: (){
               // future navigator pust to create mess screen
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const CreateMessScreen()));
 
             }),
 
