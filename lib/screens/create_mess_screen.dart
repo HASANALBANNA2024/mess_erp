@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mess_erp/admin_screen/mess_setting_screen.dart';
 
 
 class CreateMessScreen extends StatelessWidget
@@ -57,6 +58,8 @@ class CreateMessScreen extends StatelessWidget
                  ),
                  //function
                  onPressed: (){
+
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=> MessSettingScreen()));
                // Future use
                // From Validation
                // Api Call / database a mess save
