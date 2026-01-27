@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mess_erp/screens/create_mess_screen.dart';
+import 'package:mess_erp/screens/user_management_screen.dart';
 
 class AdminDashboard extends StatelessWidget
 {
@@ -82,17 +83,25 @@ class AdminDashboard extends StatelessWidget
           BottomNavigationBarItem(
             icon: Icon(Icons.people),
             label: "Users",
+
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
             label: "Expand",
+
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.receipt_long),
             label: "Reports",
           ),
         ],
-        onTap: (index) {},
+        // screen golo call kora hobe sob
+        onTap: (index) {
+          if(index == 1)
+            {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> UserManagementScreen()));
+            }
+        },
       ),
 
 
