@@ -1,13 +1,20 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:mess_erp/admin_screen/manager_dashboard.dart';
 import 'package:mess_erp/screens/forgot_password.dart';
 import 'package:mess_erp/screens/register_screen.dart';
 import 'package:mess_erp/admin_screen/admin_dashboard.dart';
 
 class LoginScreen extends StatelessWidget
 {
-  const LoginScreen({super.key});
+  // controller add
+  final userIDController = TextEditingController();
+  final passwordIDController = TextEditingController();
+
+
+
+
+
+   LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +68,7 @@ class LoginScreen extends StatelessWidget
 
               // TextField for user ID
               TextField(
+                controller: userIDController,
                 decoration: InputDecoration(
                   labelText: 'User ID',
                   hintText: 'Enter Your ID',
@@ -74,6 +82,7 @@ class LoginScreen extends StatelessWidget
               //TextField for Password
               TextField(
               obscureText: true,
+                controller: passwordIDController,
                 decoration: InputDecoration(
                   labelText: 'Password',
                   hintText: 'Enter Your Password',
@@ -111,7 +120,38 @@ class LoginScreen extends StatelessWidget
 
                   onPressed: (){
 
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => AdminDashboard()));
+                    final userId = userIDController.text.trim();
+                    final password = passwordIDController.text.trim();
+
+
+                    // static login (temporary)
+
+                    if(userId == "admin" && password == "admin")
+                      {
+                        // admin dashboard call
+                        Navigator.pushReplacement(context,
+
+                            MaterialPageRoute(builder: (_) => const AdminDashboard()));
+
+                      }
+                    else if(userId == "manager" && password == "manager")
+                      {
+                        // Manager Dashboard
+                        Navigator.pushReplacement(context,
+
+                            MaterialPageRoute(builder: (_) => const ManagerDashboardScreen()));
+                      }
+                    else
+                      {
+                        // Wrong Credentials
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Inavlid user id or Password")));
+                      }
+
+
+
+
+
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) => AdminDashboard()));
                     //Future login Logic
                     //call api
                     // verify user ID & password

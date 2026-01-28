@@ -36,7 +36,7 @@ class AdminDashboard extends StatelessWidget
         ],
 
       ),
-      
+
       // body
       body: Padding(
         padding: EdgeInsets.all(16),
@@ -56,7 +56,7 @@ class AdminDashboard extends StatelessWidget
 
 
               ],
-              
+
             ),
 
             const SizedBox(height: 20,),
@@ -77,7 +77,7 @@ class AdminDashboard extends StatelessWidget
 
           ],
         ),
-        
+
       ),
 
       //Bottom Navigation
@@ -118,21 +118,21 @@ class AdminDashboard extends StatelessWidget
         // screen golo call kora hobe sob
         onTap: (index) {
           if(index == 2)
-            {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> UserManagementScreen()));
-            }
+          {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> UserManagementScreen()));
+          }
           else if(index == 1)
-            {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> ManagerAssignmentScreen()));
-            }
+          {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> ManagerAssignmentScreen()));
+          }
           // else if(index == 5)
           //   {
           //     Navigator.pop(context);
           //   }
           else if(index == 4)
-            {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> ReportScreen()));
-            }
+          {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> ReportScreen()));
+          }
         },
       ),
 
@@ -147,83 +147,83 @@ class AdminDashboard extends StatelessWidget
 
     );
   }
-  
+
 // summary card widget
-Widget _summaryCard({
+  Widget _summaryCard({
     required String title,
     required String value,
     required IconData icon,
     required Color color,
-})
-{
-  return Expanded(child: Container(
-    margin:  const EdgeInsets.symmetric(horizontal: 4),
-    padding: const EdgeInsets.all(12),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(12),
-      boxShadow: [
-        BoxShadow(color: Colors.black.withOpacity(0.05),
-        blurRadius: 6)
-      ]
-    ),
-    
-    
-    child: Column(
-      children: [
-        Icon(icon, color: color, size: 30,),
-        const SizedBox(height: 8,),
-        Text(value, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-        const SizedBox(height: 4,),
-        Text(title, style: TextStyle(color: Colors.grey.shade600),)
-      ],
-    ),
-    
-  ));
-}
-  
+  })
+  {
+    return Expanded(child: Container(
+      margin:  const EdgeInsets.symmetric(horizontal: 4),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(color: Colors.black.withOpacity(0.05),
+                blurRadius: 6)
+          ]
+      ),
+
+
+      child: Column(
+        children: [
+          Icon(icon, color: color, size: 30,),
+          const SizedBox(height: 8,),
+          Text(value, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+          const SizedBox(height: 4,),
+          Text(title, style: TextStyle(color: Colors.grey.shade600),)
+        ],
+      ),
+
+    ));
+  }
+
 
 
 
 // action Button Widget
 
-Widget _actionButton({
+  Widget _actionButton({
     required String text,
     required Color color,
     required IconData icon,
     required VoidCallback onTap,
-})
-{
-  return InkWell(
-    onTap: onTap,
-    child: Container(
-      height: 55,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(10)
+  })
+  {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        height: 55,
+        decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(10)
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: Colors.white,),
+            const SizedBox(width: 10,),
+            Text(
+              text, style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
+            )
+
+
+          ],
+        ),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, color: Colors.white,),
-          const SizedBox(width: 10,),
-          Text(
-            text, style: const TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
-          )
+    );
+
+  }
 
 
-        ],
-      ),
-    ),
-  );
-
-}
 
 
-  
-  
 }
