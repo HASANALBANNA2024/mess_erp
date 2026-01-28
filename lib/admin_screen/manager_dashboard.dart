@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mess_erp/admin_screen/adminDrawer.dart';
-
+import 'package:mess_erp/admin_screen/MyMealDetailsScreen.dart';
+import 'package:mess_erp/screens/login_screen.dart';
+import 'package:mess_erp/payment_screen/bill_screen.dart';
 
 class ManagerDashboardScreen extends StatelessWidget {
   const ManagerDashboardScreen({super.key});
@@ -145,14 +146,30 @@ class ManagerDashboardScreen extends StatelessWidget {
         currentIndex: 0,
         selectedItemColor: Colors.blue.shade800,
         unselectedItemColor: Colors.grey,
+
         items: const [
+
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.restaurant), label: "Meals"),
-          BottomNavigationBarItem(icon: Icon(Icons.request_page), label: "Requests"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
+          BottomNavigationBarItem(icon: Icon(Icons.restaurant,color: Colors.black,), label: "Meal"),
+          BottomNavigationBarItem(icon: Icon(Icons.request_page, color: Colors.black,), label: "Requests"),
+          BottomNavigationBarItem(icon: Icon(Icons.settings, color: Colors.black,), label: "Settings"),
+          BottomNavigationBarItem(icon: Icon(Icons.logout, color: Colors.black,), label: "Logout"),
+
         ],
         onTap: (index) {
           // future navigation
+          if(index == 1)
+            {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> MyMealDetailsScreen()));
+            }
+          if(index ==4)
+            {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
+            }
+          if(index ==2)
+          {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> MyBillScreen()));
+          }
         },
       ),
     );
